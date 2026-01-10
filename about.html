@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            
+            <div class="site-logo">
+                <a href="index.html">
+                    <img src="assets/img/PulseIQ.png" alt="PulseIQ Logo">
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="projects.html">PROJECTS</a>
+                <div class="nav-dropdown">
+                    <a href="learning.html">LEARNING</a>
+                    <div class="dropdown-content">
+                        <a href="learning-ignition.html">Ignition</a>
+                        <a href="learning-tia.html">TIA Portal</a>
+                        <a href="learning-simatic.html">Simatic Manager</a>
+                        <a href="learning-studio5000.html">Studio 5000</a>
+                        <a href="learning-rslogix500.html">RSLogix 500</a>
+                        <a href="learning-factorytalk.html">Factory Talk</a>
+                        <a href="learning-cxprogrammer.html">CX-Programmer</a>
+                        <a href="learning-weintek.html">Weintek EasyBuilder Pro</a>
+                        <a href="learning-mariadb.html">MariaDB</a>
+                    </div>
+                </div>
+                <a href="about.html" class="active">ABOUT</a>
+            </nav>
+            
+        </div>
+    </header>
+
+    <main class="automation-writeup">
+        <section class="hero-content">
+            <div class="container">
+                <span class="badge">Industry 4.0 // Redefined</span>
+                <h1>The Future of Industry is <span class="gradient-text">Software-Defined.</span></h1>
+                <p class="lead-text">
+                    Legacy automation is a bottleneck. We're the breakthrough. <span class="gradient-text">PulseIQ</span> is disrupting the industrial status quo by merging elite software engineering with autonomous hardware.
+                </p>
+            </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="container">
+                <div class="grid-item">
+                    <div class="icon">01</div>
+                    <h3>Decoupling Hardware</h3>
+                    <p>We break vendor lock-in. Our open-architecture approach ensures your software isn't a prisoner to your hardware.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">02</div>
+                    <h3>Edge Intelligence</h3>
+                    <p>We move the brain closer to the machine. Real-time AI processing that eliminates latency and predicts failure before it happens.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">03</div>
+                    <h3>Cloud-Native OT</h3>
+                    <p>Bringing DevOps to the factory floor. Deploy updates, monitor health, and scale production with the agility of a tech giant.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto">
+            <div class="container">
+                <div class="manifesto-card">
+                    <h2>Stop Maintaining. <br>Start Innovating.</h2>
+                    <p>While the old guard sells you maintenance contracts for yesterday's tech, we build the autonomous systems of tomorrow. We don't just automate tasks; we engineer competitive advantages.</p>
+                    <a href="#contact" class="cta-button">Join the Revolution</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
