@@ -28,6 +28,7 @@
             <nav class="main-nav">
                 <a href="index.html">HOME</a>
                 <a href="projects.html">PROJECTS</a>
+                <a href="services.html" class="active">SERVICES</a>
                 <div class="nav-dropdown">
                     <a href="learning.html">LEARNING</a>
                     <div class="dropdown-content">
@@ -42,14 +43,101 @@
                         <a href="learning-mariadb.html">MariaDB</a>
                     </div>
                 </div>
-                <a href="about.html" class="active">ABOUT</a>
+                <a href="about.html">ABOUT</a>
             </nav>
             
         </div>
     </header>
 
-    
+    <main>
+        <section class="max-width-container">
+            <h1 class="section-title">Our Services</h1>
+            <p class="section-description">
+                From initial logic design to enterprise-level integration, we provide right-sized automation solutions tailored to your operational pulse.
+            </p>
+        </section>
+
+        <section class="max-width-container" style="padding-bottom: 80px;">
+            <div class="learning-grid">
+                
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/design.png" alt="Control System Design" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=Design'">
+                    </div>
+                    <h3>Control System Design</h3>
+                    <p>Custom electrical and logical architecture designed for efficiency. We map out the "brain" of your operation to ensure maximum reliability and safety.</p>
+                    <span class="tech-category">Hardware & Logic</span>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/panel.png" alt="Panel Building" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=Panel'">
+                    </div>
+                    <h3>Panel Building</h3>
+                    <p>High-quality, industrial-grade control panels. Our builds are clean, labeled for easy maintenance, and built to withstand the rigors of the factory floor.</p>
+                    <span class="tech-category">Fabrication</span>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/plc.png" alt="PLC Programming" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=PLC'">
+                    </div>
+                    <h3>Programmable Controller Programming</h3>
+                    <p>From smart relay logic to advanced high-speed PLCs. We write robust code that handles complex math and high-octane data processing.</p>
+                    <span class="tech-category">Software</span>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/scada.png" alt="SCADA Development" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=SCADA'">
+                    </div>
+                    <h3>SCADA Development</h3>
+                    <p>Visualizing your process in real-time. We build intuitive HMI and SCADA interfaces that allow operators to monitor and control systems with ease.</p>
+                    <span class="tech-category">Visualization</span>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/integration.png" alt="MES & ERP Integration" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=ERP'">
+                    </div>
+                    <h3>MES and ERP Integration</h3>
+                    <p>Bridging the gap between the shop floor and the top floor. We sync your production data directly into your management systems.</p>
+                    <span class="tech-category">Data Strategy</span>
+                </div>
+
+                <div class="learning-card">
+                    <div class="card-icon-container">
+                        <img src="images/icons/apps.png" alt="Mobile & Desktop Apps" onerror="this.src='https://via.placeholder.com/60/1da192/ffffff?text=Apps'">
+                    </div>
+                    <h3>Mobile & Desktop Applications</h3>
+                    <p>Custom software solutions for remote monitoring, data logging, and specialized industrial tools built for any device.</p>
+                    <span class="tech-category">Custom Dev</span>
+                </div>
+
+                <div class="learning-card" style="border-left-color: #3f87f5;">
+                    <div class="card-icon-container" style="background-color: #e6f0ff;">
+                        <img src="images/icons/consult.png" alt="Consultancy" onerror="this.src='https://via.placeholder.com/60/3f87f5/ffffff?text=IQ'">
+                    </div>
+                    <h3>Consultancy</h3>
+                    <p>Not sure where to start? We offer expert guidance to help you "right-size" your automation roadmap and avoid costly over-engineering.</p>
+                    <span class="tech-category" style="background-color: #3f87f5;">Strategy</span>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="lightbox-modal" onclick="this.style.display='none'">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
+    </div>
 
     <div id="footer-placeholder"></div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox').style.display = 'block';
+            document.getElementById('lightbox-image').src = src;
+        }
+    </script>
 </body>
-</html>
