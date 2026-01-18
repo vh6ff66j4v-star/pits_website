@@ -454,6 +454,30 @@ main {
     align-self: flex-start;
 }
 
+/* Ensure the grid strictly controls the width of the cards */
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%; /* Ensure it doesn't overflow the container */
+    align-items: start;
+}
+
+/* Force the card to stay within its grid cell */
+.learning-card.service-alt {
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.service-thumbnail img {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover;
+    display: block; /* Removes bottom whitespace */
+}
+
+
 /* =================================
    6. Lightbox Modal
    ================================= */
