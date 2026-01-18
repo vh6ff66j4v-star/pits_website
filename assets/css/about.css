@@ -38,12 +38,17 @@
     margin: 20px 0;
     line-height: 1.1;
 }
-
+/* 
 .gradient-text {
+    Use the standard property where supported, and keep the WebKit prefixed
+       version for Safari/older WebKit browsers. Support for `background-clip: text`
+       is limited across browsers, so keep the prefixed rules as the primary
+       mechanism for wide compatibility. 
     background: linear-gradient(90deg, #7000ff, #00f2ff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+}*/
 
 .lead-text {
     font-size: 1.25rem;
