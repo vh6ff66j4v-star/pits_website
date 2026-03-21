@@ -1,45 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>PulseIQ — Industrial Automation & SCADA Services</title>
+    <meta name="description" content="PulseIQ delivers right-sized industrial automation, PLC programming, and SCADA solutions for manufacturers across Asia, Europe, and Africa.">
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $("#footer-placeholder").load("footer.html");
-        });
-    </script>
+    <script>$(function(){ $("#footer-placeholder").load("footer.html"); });</script>
 </head>
 <body>
+
+    <!-- ========== HEADER ========== -->
     <header class="site-header">
         <div class="header-content">
-            
             <div class="site-logo">
                 <a href="index.html">
                     <img src="assets/img/PulseIQ.png" alt="PulseIQ">
                 </a>
             </div>
-            
             <nav class="main-nav">
-                <a href="index.html">HOME</a>
+                <a href="index.html" class="active">HOME</a>
                 <a href="projects.html">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
+                <a href="#contact" class="nav-cta">Let's Talk</a>
+                <button class="theme-toggle" title="Toggle dark mode">🌙</button>
             </nav>
-            
         </div>
     </header>
 
     <main>
-        <!-- CONTENT -->
+
+
+        
     </main>
-    
 
     <div id="footer-placeholder"></div>
+
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Project Photo" id="lightbox-image">
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

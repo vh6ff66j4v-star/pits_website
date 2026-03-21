@@ -1,106 +1,108 @@
-// ===================================
-// 1. Mouse Scroll Functionality (Fixed Boundary Check)
-// ===================================
+/* ============================================================
+   PULSEIQ — Main JavaScript
+   ============================================================ */
 
-function setupMouseScroll(windowSelector, movingElementSelector) {
-    // 1. Get the elements we need
-    const windowElement = document.querySelector(windowSelector);
-    const movingElement = document.querySelector(movingElementSelector);
+/* ============================================================
+   1. Dark / Light Theme Toggle
+   ============================================================ */
+function initThemeToggle() {
+    const savedTheme = localStorage.getItem('pulseiqs-theme') || 'dark';
+    applyTheme(savedTheme);
 
-    // Stop if elements don't exist
-    if (!windowElement || !movingElement) return;
-
-    // Use the user's preferred sensitivity
-    const SENSITIVITY = 1.2; 
-
-    // 2. Event Listener: Fires every time the mouse moves over the visible window
-    windowElement.addEventListener('mousemove', (e) => {
-        
-        // A. Get boundary information for calculations
-        const windowRect = windowElement.getBoundingClientRect();
-        const mouseX = e.clientX - windowRect.left;
-        const center = windowRect.width / 2;
-        const offsetFromCenter = mouseX - center;
-
-        // D. Calculate the total hidden content width
-        const scrollableWidth = movingElement.scrollWidth - windowRect.width;
-
-        // E. Guard: Stop if content is not wider than the window
-        if (scrollableWidth <= 0) {
-            movingElement.style.transform = `translateX(0px)`;
-            return;
-        }
-
-        // F. Calculate the target X translation (Scroll amount)
-        let translateX = (offsetFromCenter / center) * scrollableWidth * -SENSITIVITY;
-
-        // G. Boundary Check (CRITICAL FIX)
-        translateX = Math.min(translateX, 0); // Cannot scroll past the beginning (left limit)
-        translateX = Math.max(translateX, -scrollableWidth); // Cannot scroll past the end (right limit)
-
-        // H. Apply the movement
-        movingElement.style.transform = `translateX(${translateX}px)`;
-        movingElement.style.transition = 'transform 0.1s linear';
-    });
-    
-    // 3. Optional: Reset transition when mouse leaves the area
-    windowElement.addEventListener('mouseleave', () => {
-        movingElement.style.transition = 'none'; 
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('pulseiqs-theme', next);
+        });
     });
 }
 
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.textContent = theme === 'dark' ? '☼' : '☽';
+        btn.setAttribute('title', theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    });
 
-// ===================================
-// 2. Lightbox Functionality (NEW)
-// ===================================
+    const logo = document.querySelector('.theme-name');
+    if (logo) {
+        // Change the source based on the theme
+        logo.src = theme === 'dark' 
+            ? 'assets/img/PulseIQ-dark.png' 
+            : 'assets/img/PulseIQ-light.png';
+    }
+}
 
-function setupLightbox() {
-    // Get modal elements
-    const modal = document.getElementById('lightbox-modal');
+/* ============================================================
+   2. Carousel — Infinite Marquee
+   Duplicates the track's children so the CSS animation loops
+   seamlessly: animates -50% (one full copy width).
+   ============================================================ */
+// function initCarousel(trackSelector) {
+//     const track = document.querySelector(trackSelector);
+//     if (!track) return;
+
+//     // Clone all existing items and append — creates the seamless loop
+//     const items = Array.from(track.children);
+//     items.forEach(item => track.appendChild(item.cloneNode(true)));
+// 
+
+function initCarousel(trackSelector, multiplier = 3) {
+    const track = document.querySelector(trackSelector);
+    if (!track) return;
+
+    const items = Array.from(track.children);
+    
+    // We start at 1 because the original set is already there
+    for (let i = 1; i < multiplier; i++) {
+        items.forEach(item => {
+            track.appendChild(item.cloneNode(true));
+        });
+    }
+}
+
+// Call it with 3 or 4 copies
+initCarousel('.skills-carousel', 4);
+
+/* ============================================================
+   3. Lightbox
+   ============================================================ */
+function initLightbox() {
+    const modal    = document.getElementById('lightbox-modal');
     const closeBtn = document.querySelector('.lightbox-close');
-    const modalImage = document.getElementById('lightbox-image');
+    const img      = document.getElementById('lightbox-image');
+    if (!modal) return;
 
-    // Get all project images (must match the new HTML structure)
-    const projectImages = document.querySelectorAll('.project-card img');
-
-    projectImages.forEach(img => {
-        // We attach the event listener to the image element
-        img.addEventListener('click', (e) => {
-            // Prevent any default navigation behavior
-            e.preventDefault(); 
+    document.querySelectorAll('.project-card img').forEach(el => {
+        el.addEventListener('click', e => {
             e.stopPropagation();
-
-            // Get the image source
-            const imgSrc = img.getAttribute('src');
-            
-            // Set the image in the modal
-            modalImage.src = imgSrc;
-            
-            // Display the modal
+            img.src = el.getAttribute('src');
             modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Close modal when user clicks on (x)
-    closeBtn.onclick = function() {
+    function closeLightbox() {
         modal.style.display = 'none';
+        document.body.style.overflow = '';
     }
 
-    // Close modal when user clicks anywhere outside of the modal content
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    modal.addEventListener('click', e => { if (e.target === modal) closeLightbox(); });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.style.display === 'block') closeLightbox();
+    });
 }
 
-
-// ===================================
-// 3. Initialization
-// ===================================
-
+/* ============================================================
+   4. Init
+   ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize both features
-    setupMouseScroll('.carousel-window', '.skills-carousel');
-    setupLightbox(); 
+    initThemeToggle();
+    initCarousel('.skills-carousel');
+    initLightbox();
 });

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulseIQ - Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS (extracted from pulseiqs.com dark theme) ─── */
+:root {
+  --bg-deep:    #0b0f1a;   /* site body / deepest bg */
+  --bg-card:    #111827;   /* card / panel bg */
+  --bg-mid:     #1a2236;   /* slightly lighter panel */
+  --teal:       #00d4aa;   /* primary accent — teal/cyan from site */
+  --teal-dim:   rgba(0,212,170,0.12);
+  --teal-glow:  rgba(0,212,170,0.25);
+  --teal-line:  rgba(0,212,170,0.35);
+  --amber:      #f5a623;   /* secondary warm accent */
+  --white:      #ffffff;
+  --white-70:   rgba(255,255,255,0.70);
+  --white-45:   rgba(255,255,255,0.45);
+  --white-20:   rgba(255,255,255,0.12);
+  --rule:       rgba(255,255,255,0.10);
+
+  /* trifold panel dimensions — A4 landscape = 297mm × 210mm, 3 equal panels */
+  --panel-w: 99mm;
+  --panel-h: 210mm;
+  --pad: 9mm;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 10px; }
+
+body {
+  background: #1e1e2e;
+  font-family: 'Barlow', sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+/* ─── PAGE LABELS (screen only) ─── */
+.page-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  text-align: left;
+  width: 297mm;
+}
+
+/* ─── TRIFOLD SHEET ─── */
+.sheet {
+  width: 297mm;
+  height: var(--panel-h);
+  display: grid;
+  grid-template-columns: repeat(3, var(--panel-w));
+  overflow: hidden;
+  position: relative;
+}
+
+/* fold guides */
+.sheet::before, .sheet::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(255,255,255,0.07);
+  z-index: 100;
+  pointer-events: none;
+}
+.sheet::before { left: calc(var(--panel-w)); }
+.sheet::after  { left: calc(var(--panel-w) * 2); }
+
+/* ─── PANEL BASE ─── */
+.panel {
+  width: var(--panel-w);
+  height: var(--panel-h);
+  padding: var(--pad);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+/* subtle grid texture */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   OUTSIDE SHEET
+   Panel order (left→right when printed):
+   [Back/Contact] [Spine/Tagline] [Front Cover]
+═══════════════════════════════════════════ */
+
+/* ── OUTSIDE: Panel 1 — Back (contact + tech) ── */
+.back { background: var(--bg-card); }
+
+.back .corner-teal {
+  position: absolute;
+  top: 0; right: 0;
+  width: 28mm; height: 28mm;
+  background: var(--teal);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+.back .section-micro {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 5px;
+}
+
+.back h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* tech chips */
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.chip {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.06em;
+  background: var(--bg-mid);
+  color: var(--white-70);
+  padding: 3px 7px;
+  border-radius: 2px;
+  border: 1px solid var(--rule);
+}
+
+.chip.hi {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border-color: var(--teal-line);
+}
+
+/* contact block */
+.contact-block {
+  position: absolute;
+  bottom: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+}
+
+.contact-block .c-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.contact-block .c-icon {
+  width: 14px;
+  height: 14px;
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-line);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-block .c-icon svg {
+  width: 8px; height: 8px;
+}
+
+.contact-block .c-text {
+  font-size: 9px;
+  color: var(--white-70);
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.04em;
+}
+
+.qr-placeholder {
+  width: 22mm;
+  height: 22mm;
+  border: 1px solid var(--teal-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.qr-placeholder::before {
+  display: none; 
+}
+
+.qr-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 6.5px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ── OUTSIDE: Panel 2 — Spine (folded-in tagline panel) ── */
+.spine { background: var(--teal); overflow: hidden; }
+
+.spine::before {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.spine-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--pad);
+}
+
+.spine-vert {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 0.04em;
+  color: var(--bg-deep);
+  line-height: 0.9;
+  opacity: 0.18;
+  position: absolute;
+  right: var(--pad);
+  top: var(--pad);
+}
+
+.spine-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  color: var(--bg-deep);
+}
+
+.spine-logo span { opacity: 0.6; }
+
+.spine-tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--bg-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  max-width: 70mm;
+}
+
+.spine-tagline em {
+  display: block;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 9px;
+  opacity: 0.7;
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+}
+
+.spine-pulse-line {
+  width: 100%;
+  height: 2px;
+  background: var(--bg-deep);
+  opacity: 0.2;
+  position: relative;
+  margin: 8px 0;
+}
+
+.website-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--bg-deep);
+  opacity: 0.75;
+}
+
+/* ── OUTSIDE: Panel 3 — Front Cover ── */
+.front-cover { background: var(--bg-deep); position: relative; }
+
+.front-cover .bg-glow {
+  position: absolute;
+  width: 60mm;
+  height: 60mm;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,170,0.15) 0%, transparent 70%);
+  top: 20mm;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.front-cover .top-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+}
+
+.front-logo-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 14mm;
+  margin-bottom: 10mm;
+}
+
+.logo-icon {
+  width: 12mm;
+  height: 12mm;
+  border: 1.5px solid var(--teal);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5mm;
+}
+
+.logo-icon svg { width: 7mm; height: 7mm; }
+
+.logo-wordmark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--white);
+}
+
+.logo-wordmark span { color: var(--teal); }
+
+.logo-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+.cover-body {
+  position: relative;
+  z-index: 1;
+}
+
+.cover-body p {
+  font-size: 9.5px;
+  color: var(--white-70);
+  line-height: 1.65;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.cover-divider {
+  width: 14mm;
+  height: 2px;
+  background: var(--teal);
+  margin: 10px 0;
+}
+
+.cover-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cstat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.cstat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 6.5px;
+  color: var(--white-45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.cover-industries {
+  position: absolute;
+  bottom: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  z-index: 1;
+}
+
+.ind-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 6.5px;
+  letter-spacing: 0.18em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.ind-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.ind-chip {
+  font-size: 7.5px;
+  padding: 2px 6px;
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid var(--teal-line);
+  border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   INSIDE SHEET
+   Panel order (left→right):
+   [Services Left] [Projects Middle] [About/CTA Right]
+═══════════════════════════════════════════ */
+
+/* ── INSIDE: Panel 1 — Services ── */
+.services-panel { background: var(--bg-card); }
+
+.srv-item {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.srv-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: var(--teal);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.srv-text h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+  line-height: 1.1;
+}
+
+.srv-text p {
+  font-size: 8px;
+  color: var(--white-45);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.srv-divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 7px 0;
+}
+
+/* ── INSIDE: Panel 2 — Projects ── */
+.projects-panel { background: var(--bg-deep); }
+
+.proj-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.proj-item:last-child { border-bottom: none; }
+
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3px;
+}
+
+.proj-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  flex: 1;
+}
+
+.proj-region {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.proj-desc {
+  font-size: 7.5px;
+  color: var(--white-45);
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.ptag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  background: var(--bg-mid);
+  color: var(--white-45);
+  border: 1px solid var(--rule);
+  padding: 1px 5px;
+  border-radius: 1px;
+}
+
+/* ── INSIDE: Panel 3 — About + CTA ── */
+.about-panel { background: var(--bg-mid); }
+
+.about-panel .big-quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  line-height: 0.92;
+  color: var(--teal);
+  opacity: 0.12;
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 0.02em;
+}
+
+.about-panel .content { position: relative; z-index: 1; }
+
+.about-panel p {
+  font-size: 8.5px;
+  color: var(--white-70);
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.value-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.value-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.value-text {
+  font-size: 8px;
+  color: var(--white-70);
+  line-height: 1.5;
+}
+
+.value-text strong {
+  color: var(--white);
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* CTA block */
+.cta-block {
+  position: absolute;
+  bottom: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  background: var(--teal);
+  padding: 10px 12px;
+  border-radius: 3px;
+}
+
+.cta-block h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  color: var(--bg-deep);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.cta-block p {
+  font-size: 8px;
+  color: var(--bg-deep);
+  opacity: 0.7;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.cta-block .cta-url {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--bg-deep);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+/* ─── SHARED HEADER ─── */
+.panel-header {
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.panel-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panel-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.3;
+  max-width: 16mm;
+}
+
+.panel-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  line-height: 1;
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: white; padding: 0; gap: 0; }
+  .page-label { display: none; }
+  .sheet { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ OUTSIDE ═══════════ -->
+<div class="page-label">▸ OUTSIDE  <!-- (when printed: fold right panel in first, then left panel over it) --></div>
+<div class="sheet" id="outside">
+
+  <!-- Panel 1: BACK (leftmost when flat, becomes back cover) -->
+  <div class="panel back">
+    <div class="corner-teal"></div>
+
+    <div class="panel-header" style="margin-top:6mm;">
+      <div class="panel-tag">Technology Stack</div>
+      <div class="panel-title">Platforms We Master</div>
+    </div>
+
+    <div class="section-micro">SCADA / HMI</div>
+    <div class="chip-grid">
+      <span class="chip hi">Ignition 8</span>
+      <span class="chip hi">WinCC</span>
+      <span class="chip">FactoryTalk</span>
+      <span class="chip">EasyBuilder Pro</span>
+      <span class="chip">GP-ProEX</span>
+    </div>
+
+    <div class="section-micro" style="margin-top:8px;">PLC / Controller</div>
+    <div class="chip-grid">
+      <span class="chip hi">TIA Portal</span>
+      <span class="chip">Step7 Manager</span>
+      <span class="chip hi">Studio 5000</span>
+      <span class="chip">RSLogix 500</span>
+      <span class="chip">CX-Programmer</span>
+      <span class="chip">Proficy</span>
+    </div>
+
+    <div class="section-micro" style="margin-top:8px;">Networking &amp; Data</div>
+    <div class="chip-grid">
+      <span class="chip hi">Profinet / Profibus</span>
+      <span class="chip hi">Ethernet/IP</span>
+      <span class="chip hi">Modbus TCP / RTU</span>
+      <span class="chip hi">OPC-UA</span>
+      <span class="chip hi">DNP3</span>
+      <span class="chip hi">IO-Link</span>
+      <span class="chip">MariaDB / SQL</span>
+    </div>
+
+    <div class="section-micro" style="margin-top:8px;">Hardware Vendors</div>
+    <div class="chip-grid">
+      <span class="chip">Siemens</span>
+      <span class="chip">Allen-Bradley</span>
+      <span class="chip">Omron</span>
+      <span class="chip">Mitsubishi</span>
+      <span class="chip">Emerson</span>
+      <span class="chip">Delta</span>
+      <span class="chip">Proface</span>
+      <span class="chip">Weintek HMI</span>
+      <span class="chip">Nidec</span>
+      <span class="chip">Danfoss</span>
+      <span class="chip">Balluff</span>
+      <span class="chip">Weidmuller</span>
+      <span class="chip">MOXA</span>
+    </div>
+
+    <div class="contact-block">
+      <div style="display:flex; gap:12px; align-items:center; margin-bottom:15px;">
+    
+        <div style="flex-shrink: 0;">
+          <div class="qr-placeholder">
+            <img src="assets/resource/pits_qr.jpg" alt="QR" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="qr-label">Scan to Visit</div>
+        </div>
+
+        <div style="flex:1; border-left: 1px solid var(--teal-line); padding-left: 12px;">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:7px; color:var(--teal); letter-spacing:0.1em; margin-bottom:4px; text-transform:uppercase;">Get in Touch</div>
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:600; color:var(--white); letter-spacing:0.06em; line-height:1.1; margin-bottom:2px;">PulseIQ</div>
+          <div style="font-size:8px; color:var(--white-45); font-weight:300; line-height:1.3;">Industrial Automation &amp;<br>Systems Integration</div>
+        </div>
+        
+      </div>
+      <div class="c-line">
+        <div class="c-icon">
+          <svg viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" stroke="#00d4aa" stroke-width="1"/><path d="M4 1v3l1.5 1.5" stroke="#00d4aa" stroke-width="1" stroke-linecap="round"/></svg>
+        </div>
+        <div class="c-text">pulseiqs.com</div>
+      </div>
+      <div class="c-line">
+        <div class="c-icon">
+          <svg viewBox="0 0 8 8" fill="none"><rect x="1" y="2" width="6" height="4" rx="0.5" stroke="#00d4aa" stroke-width="1"/><path d="M1 2.5l3 2 3-2" stroke="#00d4aa" stroke-width="1"/></svg>
+        </div>
+        <div class="c-text">info@pulseiqs.com</div>
+      </div>
+      <div class="c-line">
+        <div class="c-icon">
+          <svg viewBox="0 0 8 8" fill="none"><path d="M4 1C2.9 1 2 1.9 2 3c0 1.7 2 4 2 4s2-2.3 2-4c0-1.1-.9-2-2-2z" stroke="#00d4aa" stroke-width="1"/></svg>
+        </div>
+        <div class="c-text">Philippines — Available Worldwide</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: SPINE (middle, visible folded-in) -->
+  <div class="panel spine">
+    <div class="spine-content">
+      <div class="spine-vert">PULSEIQ IT<br>Solutions</div>
+      <div class="spine-logo">PULSE<span>IQ</span></div>
+      <div>
+        <div class="spine-pulse-line"></div>
+        <div class="spine-tagline">
+          Engineering the Intelligence Behind Industrial Operations
+          <em>From sensor to cloud — we make your plant smarter.</em>
+        </div>
+        <div class="spine-pulse-line"></div>
+      </div>
+      <div class="website-tag">www.pulseiqs.com</div>
+    </div>
+  </div>
+
+  <!-- Panel 3: FRONT COVER (rightmost, first thing you see) -->
+  <div class="panel front-cover">
+    <div class="bg-glow"></div>
+    <div class="top-line"></div>
+
+    <div class="front-logo-wrap">
+      <div class="logo-icon" style="background: #ffffff; padding: 1.5mm;">
+        <img src="assets/resource/Logo.png" 
+            alt="PulseIQ Logo" 
+            style="width: 125%; height: 125%; object-fit: contain;">
+      </div>
+      <div class="logo-wordmark">Pulse<span>IQ</span></div>
+      <div class="logo-sub">Industrial Automation &amp; Systems Integration</div>
+    </div>
+
+    <div class="cover-body">
+      <div class="cover-divider"></div>
+      <p>We design, develop, and commission control systems that transform industrial operations — from single-machine PLC logic to multi-site SCADA platforms connecting entire facilities.</p>
+      <p>Platform-agnostic. Internationally proven. Right-sized to your actual needs.</p>
+    </div>
+
+    <div class="cover-stats">
+      <div>
+        <div class="cstat-num">6+</div>
+        <div class="cstat-label">Industries<br>Served</div>
+      </div>
+      <div>
+        <div class="cstat-num">3</div>
+        <div class="cstat-label">Continents<br>Reached</div>
+      </div>
+      <div>
+        <div class="cstat-num">8</div>
+        <div class="cstat-label">Core<br>Services</div>
+      </div>
+    </div>
+
+    <div class="cover-industries">
+      <div class="ind-label">Sectors</div>
+      <div class="ind-chips">
+        <span class="ind-chip">Manufacturing</span>
+        <span class="ind-chip">Food & Beverage</span>
+        <span class="ind-chip">Energy</span>
+        <span class="ind-chip">Metals</span>
+        <span class="ind-chip">Railway</span>
+        <span class="ind-chip">Mining</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /outside sheet -->
+
+
+<!-- ═══════════ INSIDE ═══════════ -->
+<div class="page-label" style="margin-top:8px;">▸ INSIDE  <!-- (unfolds to reveal all three inner panels)</div> -->
+<div class="sheet" id="inside">
+
+  <!-- Panel 1: SERVICES (left) -->
+  <div class="panel services-panel">
+    <div class="panel-header">
+      <div class="panel-tag">02 / Services</div>
+      <div class="panel-title">What We Deliver</div>
+    </div>
+
+    <div class="srv-item">
+      <div class="srv-num">01</div>
+      <div class="srv-text">
+        <h4>Control System Design</h4>
+        <p>Custom electrical &amp; logical architecture. Full I/O topology, network design, and safety integration before code is written.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">02</div>
+      <div class="srv-text">
+        <h4>Panel Building</h4>
+        <p>Industrial-grade panels fabricated clean, labeled, and built to survive the factory floor for decades.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">03</div>
+      <div class="srv-text">
+        <h4>Controller Programming</h4>
+        <p>Smart relay logic to safety PLCs. Robust, well-documented code your maintenance team can own and extend.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">04</div>
+      <div class="srv-text">
+        <h4>SCADA Development</h4>
+        <p>Real-time visualization via Ignition Perspective &amp; WinCC. Intuitive operator interfaces backed by solid historian data.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">05</div>
+      <div class="srv-text">
+        <h4>MES Integration</h4>
+        <p>Live production data flowing into your management systems. Eliminate manual reporting, bridge OT and IT.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">06</div>
+      <div class="srv-text">
+        <h4>Mobile &amp; Desktop Apps</h4>
+        <p>Custom remote monitoring and data logging tools for any device — plant floor or offsite.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">07</div>
+      <div class="srv-text">
+        <h4>Consultancy</h4>
+        <p>Right-size your automation roadmap. Avoid costly over-engineering and invest where it truly matters.</p>
+      </div>
+    </div>
+    <div class="srv-divider"></div>
+
+    <div class="srv-item">
+      <div class="srv-num">08</div>
+      <div class="srv-text">
+        <h4>Automation Training</h4>
+        <p>Hands-on programs for PLC logic, SCADA, and automation safety. Empower your team to own the systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: PROJECTS (middle) -->
+  <div class="panel projects-panel">
+    <div class="panel-header">
+      <div class="panel-tag">03 / Portfolio</div>
+      <div class="panel-title">Selected Projects</div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Renewable Power Plant SCADA</div>
+        <div class="proj-region">Asia</div>
+      </div>
+      <div class="proj-desc">Centralized SCADA unifying 7 renewable power plants — visualization, historian, and reporting.</div>
+      <div class="proj-tags">
+        <span class="ptag">Ignition 8.1</span><span class="ptag">Perspective</span><span class="ptag">DNP3</span><span class="ptag">OPC-UA</span>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Downstream Aluminium Handling</div>
+        <div class="proj-region">Europe</div>
+      </div>
+      <div class="proj-desc">Full lifecycle: software development, power energization, device config, testing &amp; production.</div>
+      <div class="proj-tags">
+        <span class="ptag">TIA Portal</span><span class="ptag">WinCC</span><span class="ptag">S7-1500F</span><span class="ptag">S120</span>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Railway Concrete Sleeper Plant</div>
+        <div class="proj-region">Africa</div>
+      </div>
+      <div class="proj-desc">Development through site commissioning for a large-scale concrete casting facility.</div>
+      <div class="proj-tags">
+        <span class="ptag">TIA Portal</span><span class="ptag">WinCC</span><span class="ptag">S7-1500F</span><span class="ptag">G120</span>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Hydraulic Forging Press</div>
+        <div class="proj-region">Europe</div>
+      </div>
+      <div class="proj-desc">Commissioning and optimization of a high-pressure hydraulic press for the metals sector.</div>
+      <div class="proj-tags">
+        <span class="ptag">TIA Portal</span><span class="ptag">WinCC</span><span class="ptag">S7-1500F</span><span class="ptag">Bosch</span><span class="ptag">IO-Link</span>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Experimental Engine SCADA</div>
+        <div class="proj-region">Europe</div>
+      </div>
+      <div class="proj-desc">Custom SCADA and data acquisition for an experimental totem engine research facility.</div>
+      <div class="proj-tags">
+        <span class="ptag">TIA Portal</span><span class="ptag">WinCC Pro</span><span class="ptag">S7-1500F</span><span class="ptag">Modbus TCP</span>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <div class="proj-name">Coal &amp; Clay Storage System</div>
+        <div class="proj-region">Asia</div>
+      </div>
+      <div class="proj-desc">Commissioning and testing of the automatic bulk minerals storage system.</div>
+      <div class="proj-tags">
+        <span class="ptag">TIA Portal</span><span class="ptag">WinCC</span><span class="ptag">S7-1500F</span><span class="ptag">G120</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3: ABOUT + CTA (right) -->
+  <div class="panel about-panel">
+    <div class="big-quote">WHO<br>WE<br>ARE</div>
+
+    <div class="content">
+      <div class="panel-header">
+        <div class="panel-tag">01 / About</div>
+        <div class="panel-title">Who We Are</div>
+      </div>
+
+      <p><strong style="color:var(--white); font-weight:600;">PulseIQ Solutions</strong> is an industrial automation and systems integration company delivering reliable, right-sized control solutions for manufacturing, processing, and energy facilities worldwide.</p>
+
+      <p>We cover the full automation lifecycle — from conceptual design and PLC/SCADA development all the way to site commissioning, MES integration, and operator training.</p>
+
+      <p>Unlike large system integrators constrained by rigid processes, PulseIQ operates with agility. Every engagement starts with understanding your operational reality, not fitting you into a standard template.</p>
+
+      <div style="margin: 12px 0 10px;">
+        <div style="font-family:'Share Tech Mono',monospace; font-size:7px; letter-spacing:0.2em; color:var(--teal); text-transform:uppercase; margin-bottom:8px;">Why PulseIQ</div>
+
+        <div class="value-row">
+          <div class="value-dot"></div>
+          <div class="value-text"><strong>Platform-Agnostic</strong>Siemens, Allen-Bradley, Omron — we select the best tool for the job, not what's convenient for us.</div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot"></div>
+          <div class="value-text"><strong>Right-Sized Solutions</strong>No over-engineering. We match complexity to your actual operational needs and budget.</div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot"></div>
+          <div class="value-text"><strong>International Experience</strong>Projects across Asia, Europe, and Africa — diverse industry exposure at every scale.</div>
+        </div>
+        <div class="value-row">
+          <div class="value-dot"></div>
+          <div class="value-text"><strong>Full Lifecycle Partner</strong>From first sketch to operator training — one partner for the entire automation journey.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h4>Let's Build Something That Lasts</h4>
+      <p>Tell us about your project — we'll scope a solution that fits your process, your team, and your budget.</p>
+      <div class="cta-url">www.pulseiqs.com</div>
+    </div>
+  </div>
+
+</div><!-- /inside sheet -->
+
+</body>
+</html>

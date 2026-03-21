@@ -1,103 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>PulseIQ | About</title>
+    <meta name="description" content="Learn about PulseIQ's founder-led approach to industrial automation — expert, right-sized, and built for your actual operation.">
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $("#footer-placeholder").load("footer.html");
-        });
-    </script>
+    <script>$(function(){ $("#footer-placeholder").load("footer.html"); });</script>
 </head>
 <body>
+
     <header class="site-header">
         <div class="header-content">
-            
             <div class="site-logo">
                 <a href="index.html">
-                    <img src="assets/img/PulseIQ.png" alt="PulseIQ">
+                    <img src="assets/img/PulseIQ-light.png" alt="PulseIQ" class="theme-name">
                 </a>
             </div>
-            
             <nav class="main-nav">
                 <a href="index.html">HOME</a>
                 <a href="projects.html">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html" class="active">ABOUT</a>
+                <!-- <a href="index.html#contact" class="nav-cta">Let's Talk</a> -->
+                <button class="theme-toggle" title="Toggle dark mode">☽</button>
             </nav>
-            
         </div>
     </header>
 
     <main>
+
+        <!-- ========== HERO ========== -->
         <section class="about-hero-section">
             <div class="max-width-container">
-                <h1 class="section-title">Our Story: The Pulse of Right-Sized Automation</h1>
+                <h1 class="section-title">The Pulse of Right-Sized Automation</h1>
                 <p class="section-description">
-                    At <strong>PULSE<span class="gradient-text">IQ</span></strong>, we believe that the most sophisticated solution isn't always the one with the most wires—it’s the one that solves the problem with the highest efficiency.
+                    At <strong>PULSE<span class="gradient-text">IQ</span></strong>, the most sophisticated solution isn't always the one with the most wires — it's the one that solves the problem with the highest efficiency.
                 </p>
+                <div class="founder-badge">Expertly crafted. Personally delivered.<!-- Founder-led · Every project delivered personally by our expert --></div>
             </div>
         </section>
 
+        <!-- ========== THE GAP / WHY ========== -->
         <section class="about-content-section">
             <div class="max-width-container">
                 <div class="content-grid">
                     <div class="content-text">
                         <h3>The Gap in the Industry</h3>
-                        <p>In the world of industrial automation, we noticed a recurring problem: a disconnect between what a client actually needs and what a supplier wants to sell.</p>
-                        <p>Most providers offer a "one-size-fits-all" approach. They default to the systems they find easiest to build—which are often unnecessarily complex and costly for the end-user.</p>
-                        <p>This leaves businesses trapped between two extremes: overpaying for features they will never use, or struggling with generic systems that don’t fit their unique workflow.</p>
+                        <p>In industrial automation, there's a recurring problem: a disconnect between what a client actually needs and what a supplier wants to sell.</p>
+                        <p>Most providers default to a "one-size-fits-all" approach — systems that are easiest for <em>them</em> to build, often unnecessarily complex and costly for the end-user.</p>
+                        <p>This leaves manufacturers trapped between two bad options: overpaying for features they'll never use, or struggling with generic systems that don't fit their workflow.</p>
                     </div>
                     <div class="content-text">
-                        <h3>Why PULSEIQ was Founded</h3>
-                        <p><strong>PULSE<span class="gradient-text">IQ</span></strong> was born out of a simple idea: <strong>Automation should be an asset, not a burden.</strong></p>
-                        <p>We founded this company to bring "Intelligence" (IQ) back to the "Pulse" of your operations. We believe in right-sized technology that respects your operational reality.</p>
+                        <h3>Why PulseIQ Exists</h3>
+                        <p><strong>PULSE<span class="gradient-text">IQ</span></strong> was built on a simple idea: <strong>Automation should be an asset, not a burden.</strong></p>
+                        <p>We bring "Intelligence" (IQ) back to the "Pulse" of your operations — right-sized technology that respects your operational reality, your budget, and your team's ability to maintain it long-term.</p>
+                        <!-- <p>When you work with PulseIQ, you work directly with the founder — a seasoned automation engineer with hands-on delivery experience across Asia, Europe, and Africa. No junior handoffs. No miscommunication through layers of account managers.</p> -->
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ========== PHILOSOPHY ========== -->
         <section class="philosophy-section">
             <div class="max-width-container">
                 <h2 class="section-title">Our Philosophy: Listen. Align. Automate.</h2>
+                <p class="section-description">Every engagement starts with understanding your operation — not with a product catalogue.</p>
                 <div class="philosophy-grid">
                     <div class="philosophy-card">
-                        <div class="card-icon-container">
-                            <span style="font-size: 2em;">⚙️</span>
-                        </div>
+                        <div style="font-size: 2rem;">⚙️</div>
                         <h3>For the Essentials</h3>
-                        <p>If your operation requires the rugged, reliable simplicity of smart relay logic, that is exactly what we deliver. We don't believe in over-engineering for the sake of a higher invoice.</p>
+                        <p>If your operation needs rugged, reliable simplicity — smart relay logic, a clean HMI, solid wiring — that's exactly what you get. We don't over-engineer for the sake of a higher invoice.</p>
                     </div>
-
                     <div class="philosophy-card">
-                        <div class="card-icon-container">
-                            <span style="font-size: 2em;">⚡</span>
-                        </div>
+                        <div style="font-size: 2rem;">⚡</div>
                         <h3>For the Extraordinary</h3>
-                        <p>When your needs scale to high-octane performance, we deploy advanced programmable controllers capable of complex mathematical calculations and high-speed data processing.</p>
+                        <p>When your process demands high-speed data processing, safety-rated fail-safe logic, or enterprise SCADA integration — we deploy the advanced capability required. Nothing more, nothing less.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div style="font-size: 2rem;">🌏</div>
+                        <h3>Built for Global Collaboration</h3>
+                        <p>With proven project delivery across Asia, Europe, and Africa, PulseIQ brings the cultural adaptability and technical versatility to partner with international teams, OEMs, and end-users anywhere.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ========== WIN-WIN ========== -->
         <section class="win-win-section">
             <div class="max-width-container">
-                <div class="learning-card" style="border-left: 5px solid #3f87f5; padding: 40px; text-align: center;">
+                <div class="win-win-card">
                     <h3>A Win-Win Standard</h3>
-                    <p>We scale our technology to fit your specific pulse. By aligning the right hardware with your actual operational demands, we ensure a system that is simple for you to maintain, powerful enough to exceed your goals, and priced to respect your bottom line.</p>
-                    <p style="font-weight: 700; color: #1da192; font-size: 1.2em;">At <span class="gradient-text">PULSEIQ</span>, a solution is only "the best" if it’s the right fit for you.</p>
+                    <p>We scale technology to fit your specific pulse. By aligning the right hardware with your actual operational demands, we ensure a system that is simple for your team to maintain, powerful enough to exceed your production goals, and priced to respect your bottom line.</p>
+                    <p class="tagline">At PULSE<span class="gradient-text">IQ</span>, a solution is only "the best" if it's the right fit for you.</p>
                 </div>
             </div>
         </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="contact-section" id="contact">
+            <div class="max-width-container">
+                <h2 class="section-title">Let's Find the Right Fit <span class="gradient-text">for Your Operation</span></h2>
+                <p class="section-description">
+                    Not sure if automation is right for your next step? A free 30-minute consultation costs nothing and could save you from a costly wrong investment.
+                </p>
+                <a href="mailto:info@pulseiqs.com?subject=Consultation Request" class="btn-primary" style="font-size:1rem; padding: 16px 40px;">
+                    Book a Free Consultation →
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <div id="footer-placeholder"></div>
-    
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

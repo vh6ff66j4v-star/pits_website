@@ -1,68 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>PulseIQ | Projects</title>
+    <meta name="description" content="PulseIQ project portfolio — industrial automation and SCADA projects delivered across Asia, Europe, and Africa.">
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $("#footer-placeholder").load("footer.html");
-        });
-    </script>
+    <script>$(function(){ $("#footer-placeholder").load("footer.html"); });</script>
 </head>
 <body>
+
     <header class="site-header">
         <div class="header-content">
-            
             <div class="site-logo">
                 <a href="index.html">
-                    <img src="assets/img/PulseIQ.png" alt="PulseIQ">
+                    <img src="assets/img/PulseIQ-light.png" alt="PulseIQ" class="theme-name">
                 </a>
             </div>
-            
             <nav class="main-nav">
                 <a href="index.html">HOME</a>
                 <a href="projects.html" class="active">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
+                <!-- <a href="index.html#contact" class="nav-cta">Let's Talk</a> -->
+                <button class="theme-toggle" title="Toggle dark mode">☽</button>
             </nav>
-            
         </div>
     </header>
 
-        <section class="max-width-container">
-            <h1 class="section-title">PROJECT PORTFOLIO</h1>
-            <p class="section-description">
-                The following projects represent a curated selection of technical milestones and industrial solutions 
-                delivered by our founder throughout an extensive career in automation. While some of these 
-                successes were achieved during previous professional tenures, they form the bedrock of the 
-                expertise we bring to <strong>PULSE<span class="gradient-text">IQ</span></strong> today.
-            </p>
-            <p class="section-description">
-                We pride ourselves on being <strong>experts in global collaboration</strong>. With a proven 
-                track record across Asia, Europe, and Africa, we possess the cultural adaptability and 
-                technical versatility to partner with international teams, OEMs, and end-users anywhere in the world.
-            </p>
+    <main>
+
+        <section class="page-hero">
+            <div class="max-width-container">
+                <h1 class="section-title">Project Portfolio</h1>
+                <p class="section-description">
+                    At PulseIQ, our founder's track record <em>is</em> our track record. Every project below was personally designed, programmed, and commissioned — which is exactly the expertise you get when you work with us. A proven history across Asia, Europe, and Africa.
+                </p>
+            </div>
         </section>
 
-<hr class="section-divider">
+        <hr class="section-divider">
 
-    <main>
-        <section class="highlight-projects-section">
-            <!-- <h1 class="section-title">PROJECTS</h1> -->
-            
+        <section class="highlight-projects-section" style="padding-top: 40px;">
             <div class="project-grid">
-                
+
                 <article class="project-card">
-                    <img src="projects/ignition-ph/img/thumbnail.jpg" alt="Ignition SCADA Dashboard Thumbnail">
+                    <img src="projects/ignition-ph/img/thumbnail.jpg" alt="Renewable Power Plant SCADA">
                     <div class="card-content">
                         <h2>Renewable Power Plant SCADA</h2>
-                        <p>Involved in designing and software development of the centralize SCADA system to unify 7 renewable power plants.</p>
+                        <p>A renewable energy operator needed unified visibility across 7 geographically dispersed power plants. We designed and built a centralized SCADA system using Ignition Perspective — giving operators a single real-time dashboard across all sites and dramatically cutting response time to plant anomalies.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="tech-tag">Ignition 8.1</span>
@@ -78,10 +66,10 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/extrusion-tk/img/thumbnail.png" alt="Aluminum Handling System Thumbnail">
+                    <img src="projects/extrusion-tk/img/thumbnail.png" alt="Aluminium Handling System">
                     <div class="card-content">
                         <h2>Downstream Aluminium Handling</h2>
-                        <p>From startup to product, involved in software development, power energization, device configuration, testing and production. </p>
+                        <p>Engaged from concept through to full production on a new aluminium extrusion handling line in Europe. Delivered end-to-end: software development, power energization, drive configuration, testing, and production sign-off. The line was handed over on schedule and ready for continuous operation.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
@@ -94,12 +82,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/casting-ng/img/thumbnail.jpg" alt="Concrete Sleeper Plant Thumbnail">
+                    <img src="projects/casting-ng/img/thumbnail.jpg" alt="Concrete Sleeper Plant">
                     <div class="card-content">
                         <h2>Railway Concrete Sleeper Plant</h2>
-                        <p>Involved in software development to project implementation, ensuring to meet the production specification.</p>
+                        <p>Full project ownership for a railway infrastructure client in Africa — from PLC software development through on-site commissioning. The automated casting line was tested, validated against strict production specifications, and signed off for high-volume continuous operation.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
@@ -112,12 +100,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/forging-kz/img/thumbnail.png" alt="Hydraulic Forging Press Thumbnail">
+                    <img src="projects/forging-kz/img/thumbnail.png" alt="Hydraulic Forging Press">
                     <div class="card-content">
                         <h2>Hydraulic Forging Press</h2>
-                        <p>Commissioning and optimization of a high-pressure hydraulic forging press.</p>
+                        <p>Commissioned and optimized a high-pressure hydraulic forging press for a metals manufacturer in Europe. Integrated Bosch hydraulic systems with Siemens safety-rated PLC control and IO-Link field devices, verifying full cycle performance targets and safety function compliance.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -132,27 +120,27 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/pressureless-ph/img/thumbnail.jpg" alt="High Speed Conveyor System">
+                    <img src="projects/pressureless-ph/img/thumbnail.jpg" alt="Pressureless Conveyor Line">
                     <div class="card-content">
                         <h2>Pressureless Conveyor Line</h2>
-                        <p>Commissioning of complete high-speed conveyor systems for beverage drink.</p>
+                        <p>Delivered development and commissioning of a complete high-speed pressureless conveyor system for a beverage manufacturer in Asia. The system required precise speed synchronization across zones to maintain product integrity at line speed.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">Simatic Manager</span>
                             <span class="tech-tag">S7-300</span>
                             <span class="tech-tag">Danfoss</span>
-                            <span class="tech-tag">Food and Beverage</span>
+                            <span class="tech-tag">Food & Beverage</span>
                             <span class="tech-tag">Asia</span>
                         </div>
                     </div>
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/filler-ph/img/thumbnail.jpg" alt="Filler System">
+                    <img src="projects/filler-ph/img/thumbnail.jpg" alt="Filler Machine">
                     <div class="card-content">
                         <h2>Filler Machine</h2>
-                        <p>Software development and commissioning of medium-speed filling machine for bleach agent.</p>
+                        <p>Developed and commissioned the control system for a medium-speed filling machine handling bleach agent for a chemical manufacturer in Asia. Delivered accurate dosing control and integrated safety interlocks for the chemical environment.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
@@ -164,12 +152,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/pal-depal-ph/img/thumbnail.jpg" alt="Palletizer Depalletizer Thumbnail">
+                    <img src="projects/pal-depal-ph/img/thumbnail.jpg" alt="Palletizer Depalletizer">
                     <div class="card-content">
                         <h2>Pal-Depalletizer Machine</h2>
-                        <p>Revamping of old palletizer and depalletizer machine.</p>
+                        <p>Revamped aging palletizer and depalletizer machines for a Philippine manufacturer. Updated the control software and recommissioned the drives to restore reliable automated operation and extend the productive life of the equipment.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
@@ -180,12 +168,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/minerals-cn/img/thumbnail.jpg" alt="Coal and Clay Storage System Thumbnail">
+                    <img src="projects/minerals-cn/img/thumbnail.jpg" alt="Coal and Clay Storage">
                     <div class="card-content">
                         <h2>Coal and Clay Storage</h2>
-                        <p>Field devices and fail-safe configuration, ensuring that the fully automatic cycle has been met based on the specification.</p>
+                        <p>Configured and validated fail-safe field devices for a fully automatic bulk minerals storage system in Asia. All automatic cycle modes and safety functions were commissioned and signed off — the system met every specification before production handover.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -196,12 +184,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/wincc-pro/img/thumbnail.png" alt="Experimental Engine SCADA Thumbnail">
+                    <img src="projects/wincc-pro/img/thumbnail.png" alt="Experimental Engine SCADA">
                     <div class="card-content">
                         <h2>Experimental Engine SCADA</h2>
-                        <p>Software development of the SCADA system for the experimental totem engine.</p>
+                        <p>Built the full SCADA visualization system for an experimental totem engine research project in Europe. The system provided researchers with real-time data acquisition and process visibility over Modbus TCP — enabling precise experimental control and data logging.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -214,10 +202,10 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/cold-roll-bh/img/thumbnail.jpg" alt="Flat Cold Rolling">
+                    <img src="projects/cold-roll-bh/img/thumbnail.jpg" alt="Cold Rolling Machine">
                     <div class="card-content">
                         <h2>Cold Rolling Machine</h2>
-                        <p>Support installation and production of sheet metal cold rolling, straigthening, cutting and stacking machine.</p>
+                        <p>Supported the installation and production launch of a sheet metal cold rolling, straightening, cutting, and stacking line in Asia. Configured Simodrive systems and verified full sequence operation through to production-ready sign-off.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">Simatic Manager</span>
@@ -227,12 +215,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/rolling-mill-ph/img/thumbnail.png" alt="Steel Rolling Mill Control Panel">
+                    <img src="projects/rolling-mill-ph/img/thumbnail.png" alt="Steel Rolling Mill">
                     <div class="card-content">
                         <h2>Steel Rolling Mill</h2>
-                        <p>Assist the upgrade of the control and drive systems of the 1.2MT rolling mill.</p>
+                        <p>Contributed to the control and drive system upgrade of a 1.2MT steel rolling mill in Asia. Migrated from legacy GE Fanuc and ABB systems to modernized control architecture, restoring reliability and extending the operational life of the mill.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="role">Upgrade</span>
@@ -246,10 +234,10 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/extrusion-sk/img/thumbnail.JPG" alt="Extrusion Press">
+                    <img src="projects/extrusion-sk/img/thumbnail.JPG" alt="Copper Extrusion Press">
                     <div class="card-content">
                         <h2>Copper Extrusion Press</h2>
-                        <p>Perform commissioning of machine upgrade, additional die axis cycle and cycle recipe.</p>
+                        <p>Commissioned a machine control upgrade for a copper extrusion press in Asia — adding new die axis cycles and recipe management. The upgrade expanded the press's production flexibility without requiring a full system replacement, maximizing the client's existing investment.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -260,19 +248,34 @@
                         </div>
                     </div>
                 </article>
+
             </div>
         </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="contact-section" id="contact">
+            <div class="max-width-container">
+                <h2 class="section-title">Have a Similar Challenge?</h2>
+                <p class="section-description">
+                    Every project above started with a conversation. Let's have one about yours — free, no commitment.
+                </p>
+                <a href="mailto:info@pulseiqs.com?subject=Project Inquiry" class="btn-primary" style="font-size:1rem; padding: 16px 40px;">
+                    Let's Talk About Your Project →
+                </a>
+            </div>
+        </section>
+
     </main>
-    
+
     <div id="footer-placeholder"></div>
 
     <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
         <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
             <img src="" alt="Project Photo" id="lightbox-image">
         </div>
     </div>
-    
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

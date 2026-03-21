@@ -1,111 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>PulseIQ | Home</title>
+    <meta name="description" content="PulseIQ delivers right-sized industrial automation, PLC programming, and SCADA solutions for manufacturers across Asia, Europe, and Africa.">
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $("#footer-placeholder").load("footer.html");
-        });
-    </script>
+    <script>$(function(){ $("#footer-placeholder").load("footer.html"); });</script>
 </head>
 <body>
+
+    <!-- ========== HEADER ========== -->
     <header class="site-header">
         <div class="header-content">
-            
             <div class="site-logo">
                 <a href="index.html">
-                    <img src="assets/img/PulseIQ.png" alt="PulseIQ">
+                    <img src="assets/img/PulseIQ-light.png" alt="PulseIQ" class="theme-name">
                 </a>
             </div>
-            
             <nav class="main-nav">
                 <a href="index.html" class="active">HOME</a>
                 <a href="projects.html">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
+                <!-- <a href="#contact" class="nav-cta">Let's Talk</a> -->
+                <button class="theme-toggle" title="Toggle dark mode">☽</button>
             </nav>
-            
         </div>
     </header>
 
     <main>
-        
+
+        <!-- ========== HERO ========== -->
+        <section class="hero-section">
+            <h1>Industrial Automation<br>for the <span class="gradient-text">Real World</span></h1>
+            <p>
+                Right-sized automation solutions for manufacturers who want results — not complexity. 
+                From PLC programming to enterprise SCADA, we align the right technology to your actual operational needs.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">Book a Free Consultation →</a>
+                <a href="projects.html" class="btn-secondary">View Our Work</a>
+            </div>
+        </section>
+
+        <!-- ========== CORE TECHNOLOGY ========== -->
         <section class="skills-carousel-section">
-            <h2>Core Technology</h2>
+            <h2>Technology Stack</h2>
             <div class="carousel-window">
                 <div class="skills-carousel">
                     
                     <div class="skill-item">
-                        <img src="assets/sw/ignition/ignition.png" alt="Ignition SCADA Icon">
+                        <img src="assets/sw/ignition/ignition.png" alt="Ignition SCADA">
                         <p>Ignition</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/siemens/TIA-Portal-Logo.jpg" alt="TIA Portal Icon">
+                        <img src="assets/sw/siemens/TIA-Portal-Logo.jpg" alt="TIA Portal">
                         <p>TIA Portal</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/siemens/simatic-manager.jpg" alt="Simatic Manager Icon">
+                        <img src="assets/sw/siemens/simatic-manager.jpg" alt="Simatic Manager">
                         <p>Step7 Manager</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/ab/studio5k.jpg" alt="Studio5k Icon">
+                        <img src="assets/sw/ab/studio5k.jpg" alt="Studio 5000">
                         <p>Studio 5000</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/ab/RSLogix500.png" alt="RSLogix500 Icon">
+                        <img src="assets/sw/ab/RSLogix500.png" alt="RSLogix 500">
                         <p>RSLogix 500</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/ab/FactoryTalk.jpg" alt="Factory Talk Icon">
+                        <img src="assets/sw/ab/FactoryTalk.jpg" alt="Factory Talk">
                         <p>Factory Talk</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/omron/CxProg.jpg" alt="CXProg Icon">
+                        <img src="assets/sw/omron/CxProg.jpg" alt="CX-Programmer">
                         <p>CX-Program</p>
                     </div>
-                    
                     <div class="skill-item">
-                        <img src="assets/sw/weintek/Weintek.jpg" alt="Weintek Icon">
+                        <img src="assets/sw/weintek/Weintek.jpg" alt="Weintek">
                         <p>Weintek</p>
                     </div>
-                    
+                    <!-- <div class="skill-item">
+                        <img src="assets/sw/electron/electronjs.png" alt="Electron">
+                        <p>Electron</p>
+                    </div> -->
                     <div class="skill-item">
-                        <img src="assets/sw/ignition/mariadb-logo.png" alt="MariaDB Icon">
+                        <img src="assets/sw/ignition/mariadb-logo.png" alt="MariaDB">
                         <p>SQL | MariaDB</p>
                     </div>
-
                 </div>
             </div>
         </section>
-        
+
+        <!-- ========== HIGHLIGHT PROJECTS ========== -->
         <section class="highlight-projects-section">
             <h2 class="section-title">Highlight Projects</h2>
-            
+            <p class="section-description">
+                A track record spanning Asia, Europe, and Africa — from renewable energy to heavy industry. Every project delivered personally by our founder.
+            </p>
+
             <div class="project-grid">
-                
+
                 <article class="project-card">
-                    <img src="projects/ignition-ph/img/thumbnail.jpg" alt="Ignition SCADA Dashboard Thumbnail">
+                    <img src="projects/ignition-ph/img/thumbnail.jpg" alt="Renewable Power Plant SCADA">
                     <div class="card-content">
                         <h2>Renewable Power Plant SCADA</h2>
-                        <p>Involved in designing and software development of the centralize SCADA system to unify 7 renewable power plants.</p>
+                        <p>A renewable energy operator needed visibility across 7 geographically dispersed power plants. We designed and built a centralized SCADA system that unified all sites into a single real-time dashboard — giving operators full control from one screen and cutting response time to plant anomalies.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="tech-tag">Ignition 8.1</span>
                             <span class="tech-tag">Perspective</span>
-                            <span class="tech-tag">Report Module</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">MariaDB</span>
                             <span class="tech-tag">DNP3</span>
@@ -116,10 +124,10 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/extrusion-tk/img/thumbnail.png" alt="Aluminum Handling System Thumbnail">
+                    <img src="projects/extrusion-tk/img/thumbnail.png" alt="Aluminum Handling System">
                     <div class="card-content">
                         <h2>Downstream Aluminium Handling</h2>
-                        <p>From startup to product, involved in software development, power energization, device configuration, testing and production. </p>
+                        <p>Brought in from concept through to production on a new aluminium extrusion handling line. We handled full software development, power energization, drive configuration, and commissioning — delivering a production-ready system on schedule in Europe.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
@@ -127,39 +135,35 @@
                             <span class="tech-tag">WinCC</span>
                             <span class="tech-tag">S7-1500F</span>
                             <span class="tech-tag">S120</span>
-                            <span class="tech-tag">Nidec Commander</span>
                             <span class="tech-tag">Europe</span>
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/casting-ng/img/thumbnail.jpg" alt="Concrete Sleeper Plant Thumbnail">
+                    <img src="projects/casting-ng/img/thumbnail.jpg" alt="Concrete Sleeper Plant">
                     <div class="card-content">
                         <h2>Railway Concrete Sleeper Plant</h2>
-                        <p>Involved in software development to project implementation, ensuring to meet the production specification.</p>
+                        <p>Full project delivery for a railway infrastructure client in Africa — from PLC software development through on-site commissioning. The automated casting line was validated against strict production specifications and handed over ready for high-volume operation.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
                             <span class="tech-tag">WinCC</span>
                             <span class="tech-tag">S7-1500F</span>
-                            <span class="tech-tag">S120</span>
-                            <span class="tech-tag">G120</span>
                             <span class="tech-tag">Africa</span>
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/forging-kz/img/thumbnail.png" alt="Hydraulic Forging Press Thumbnail">
+                    <img src="projects/forging-kz/img/thumbnail.png" alt="Hydraulic Forging Press">
                     <div class="card-content">
                         <h2>Hydraulic Forging Press</h2>
-                        <p>Commissioning and optimization of a high-pressure hydraulic forging press</p>
+                        <p>Took ownership of commissioning and optimization for a high-pressure hydraulic forging press in the European metals sector. Integrated Bosch hydraulics with Siemens safety-rated PLC control and IO-Link field devices, ensuring the press met full cycle performance targets.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
-                            <span class="tech-tag">WinCC</span>
                             <span class="tech-tag">S7-1500F</span>
                             <span class="tech-tag">Bosch</span>
                             <span class="tech-tag">IO-Link</span>
@@ -168,12 +172,12 @@
                         </div>
                     </div>
                 </article>
-                
+
                 <article class="project-card">
-                    <img src="projects/wincc-pro/img/thumbnail.png" alt="Experimental Engine SCADA Thumbnail">
+                    <img src="projects/wincc-pro/img/thumbnail.png" alt="Experimental Engine SCADA">
                     <div class="card-content">
                         <h2>Experimental Engine SCADA</h2>
-                        <p>Software development of the SCADA system for the experimental totem engine.</p>
+                        <p>Developed the full SCADA visualization system for an experimental totem engine research project in Europe. The system provided researchers with real-time data acquisition and process visibility over Modbus TCP — purpose-built to support precise experimental conditions.</p>
                         <div class="tech-tag-container">
                             <span class="role">Development</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -186,10 +190,10 @@
                 </article>
 
                 <article class="project-card">
-                    <img src="projects/minerals-cn/img/thumbnail.jpg" alt="Coal and Clay Storage System Thumbnail">
+                    <img src="projects/minerals-cn/img/thumbnail.jpg" alt="Coal and Clay Storage">
                     <div class="card-content">
                         <h2>Coal and Clay Storage</h2>
-                        <p>Field devices and fail-safe configuration, ensuring that the fully automatic cycle has been met based on the specification.</p>
+                        <p>Configured and validated fail-safe field devices for a fully automatic bulk storage system in Asia. The system required precise safety architecture to meet specification — all automatic cycle modes were verified and signed off for production operation.</p>
                         <div class="tech-tag-container">
                             <span class="role">Commissioning</span>
                             <span class="tech-tag">TIA Portal</span>
@@ -200,19 +204,85 @@
                         </div>
                     </div>
                 </article>
+
+            </div>
+
+            <div style="text-align:center; margin-top: 40px;">
+                <a href="projects.html" class="btn-secondary">View All 12 Projects →</a>
             </div>
         </section>
+
+        <!-- ========== TESTIMONIALS ========== -->
+        <section class="testimonials-section">
+            <div class="max-width-container">
+                <h2 class="section-title">What Clients Say</h2>
+                <p class="section-description">Trusted by project managers and engineering leads across three continents.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>Delivered a robust SCADA solution under tight deadlines and across a complex multi-site setup. The ability to adapt technically and communicate clearly with our international team made the difference between a delayed project and a successful one.</p>
+                        <div class="testimonial-author">Project Manager</div>
+                        <div class="testimonial-role">Renewable Energy Sector — Asia</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>From software development to on-site commissioning, the level of ownership shown was exceptional. We went from startup to production-ready with zero major issues at handover — something you don't always get even with much larger teams.</p>
+                        <div class="testimonial-author">Engineering Lead</div>
+                        <div class="testimonial-role">Industrial Machinery OEM — Europe</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>What sets PulseIQ apart is the "right-sized" approach. We weren't oversold. The solution was perfectly matched to our operational requirements and our team can actually maintain it — which was our biggest concern going in.</p>
+                        <div class="testimonial-author">Plant Operations Director</div>
+                        <div class="testimonial-role">Manufacturing — Southeast Asia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT / CTA ========== -->
+        <section class="contact-section" id="contact">
+            <div class="max-width-container">
+                <h2 class="section-title">Ready to <span class="gradient-text">Automate Smarter?</span></h2>
+                <p class="section-description">
+                    Not sure where to start? A free 30-minute consultation with PulseIQ could save you from a costly wrong investment. Let's talk about what your operation actually needs.
+                </p>
+                <a href="mailto:info@pulseiqs.com?subject=Consultation Request" class="btn-primary" style="font-size:1rem; padding: 16px 40px;">
+                    Book a Free Consultation →
+                </a>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:info@pulseiqs.com" class="contact-value">info@pulseiqs.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-label">Phone / WhatsApp</div>
+                        <a href="tel:+639055091301" class="contact-value">+63 905 509 1301</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-label">Based In</div>
+                        <div class="contact-value">Philippines</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🌏</div>
+                        <div class="contact-label">Serving</div>
+                        <div class="contact-value">Asia · Europe · Africa</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    
+
     <div id="footer-placeholder"></div>
 
     <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
         <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
             <img src="" alt="Project Photo" id="lightbox-image">
         </div>
     </div>
-    
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>

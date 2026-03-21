@@ -1,58 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <title>PulseIQ | Services</title>
+    <meta name="description" content="PulseIQ offers PLC programming, SCADA development, MES integration, control system design, and industrial training — right-sized to your operation.">
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $("#footer-placeholder").load("footer.html");
-        });
-    </script>
+    <script>$(function(){ $("#footer-placeholder").load("footer.html"); });</script>
 </head>
 <body>
+
     <header class="site-header">
         <div class="header-content">
-            
             <div class="site-logo">
                 <a href="index.html">
-                    <img src="assets/img/PulseIQ.png" alt="PulseIQ">
+                    <img src="assets/img/PulseIQ-light.png" alt="PulseIQ" class="theme-name">
                 </a>
             </div>
-            
             <nav class="main-nav">
                 <a href="index.html">HOME</a>
                 <a href="projects.html">PROJECTS</a>
                 <a href="services.html" class="active">SERVICES</a>
                 <a href="about.html">ABOUT</a>
+                <!-- <a href="index.html#contact" class="nav-cta">Let's Talk</a> -->
+                <button class="theme-toggle" title="Toggle dark mode">☽</button>
             </nav>
-            
         </div>
     </header>
 
     <main>
-        <section class="max-width-container">
-            <h1 class="section-title">Our Services</h1>
-            <p class="section-description">
-                From initial logic design to enterprise-level integration, we provide right-sized automation solutions tailored to your operational pulse.
-            </p>
+
+        <section class="page-hero">
+            <div class="max-width-container">
+                <h1 class="section-title">Our Services</h1>
+                <p class="section-description">
+                    From initial logic design to enterprise-level integration — right-sized automation solutions that actually fit your operation, your team, and your budget.
+                </p>
+            </div>
         </section>
 
         <section class="max-width-container" style="padding-bottom: 80px;">
             <div class="learning-grid">
-                
+
+                <!-- Consultancy FIRST — best lead-gen offer -->
+                <div class="learning-card service-alt">
+                    <div class="service-thumbnail">
+                        <img src="services/consultancy/thumbnail.jpg" alt="Consultancy" onerror="this.src='https://via.placeholder.com/400x250/3f87f5/ffffff?text=Consultancy'">
+                    </div>
+                    <div class="service-body">
+                        <h3>Free Consultation & Roadmap</h3>
+                        <p>Investing in the wrong automation system can cost you far more than doing nothing. Before committing to hardware or software, let's align on what your operation actually needs. We offer a free 30-minute consultation to assess your situation and recommend a right-sized roadmap — no sales pitch, no obligation.</p>
+                        <span class="tech-category" style="background: linear-gradient(135deg, #3f87f5, #1da192);">Start Here — Free</span>
+                    </div>
+                </div>
+
                 <div class="learning-card service-alt">
                     <div class="service-thumbnail">
                         <img src="services/control-design/thumbnail.jpeg" alt="Control System Design" onerror="this.src='https://via.placeholder.com/400x250/1a3c5a/ffffff?text=Control+System+Design'">
                     </div>
                     <div class="service-body">
                         <h3>Control System Design</h3>
-                        <p>Custom electrical and logical architecture designed for efficiency. We map out the "brain" of your operation to ensure maximum reliability and safety.</p>
+                        <p>A control system built on a weak foundation causes problems for years. We design the full electrical and logical architecture upfront — hardware selection, network topology, I/O design, and safety strategy — so your system is reliable, maintainable, and built to last.</p>
                         <span class="tech-category">Hardware & Logic</span>
                     </div>
                 </div>
@@ -63,7 +73,7 @@
                     </div>
                     <div class="service-body">
                         <h3>Panel Building</h3>
-                        <p>High-quality, industrial-grade control panels. Our builds are clean, labeled for easy maintenance, and built to withstand the factory floor.</p>
+                        <p>A poorly built control panel creates problems every time a technician opens the door. We build industrial-grade control panels that are clean, properly labeled, and logically laid out — designed for the factory floor and for the maintenance team who has to work on it for the next 10 years.</p>
                         <span class="tech-category">Fabrication</span>
                     </div>
                 </div>
@@ -74,7 +84,7 @@
                     </div>
                     <div class="service-body">
                         <h3>Controller Programming</h3>
-                        <p>From smart relay logic to advanced high-speed PLCs. We write robust code that handles complex math and high-octane data processing.</p>
+                        <p>Poorly written PLC code is a maintenance nightmare — cryptic logic that only the original programmer can understand. We write clean, documented, reliable control logic across Siemens, Allen-Bradley, and Omron platforms. From simple relay replacement to complex sequence control and safety-rated fail-safe programs.</p>
                         <span class="tech-category">Software</span>
                     </div>
                 </div>
@@ -85,7 +95,7 @@
                     </div>
                     <div class="service-body">
                         <h3>SCADA Development</h3>
-                        <p>Visualizing your process in real-time. We build intuitive interfaces that allow operators to monitor and control systems with ease.</p>
+                        <p>Running blind on the factory floor is expensive — anomalies discovered late turn into unplanned downtime. We build SCADA systems that give operators real-time process visibility and control. Specialists in Ignition Perspective for web-based, device-agnostic dashboards that your team can actually use.</p>
                         <span class="tech-category">Visualization</span>
                     </div>
                 </div>
@@ -96,7 +106,7 @@
                     </div>
                     <div class="service-body">
                         <h3>MES Integration</h3>
-                        <p>Bridging the gap between the shop floor and the top floor. We sync your production data directly into your management systems.</p>
+                        <p>When your shop floor and your management systems don't talk to each other, you're making decisions on outdated data. We bridge the gap — connecting real-time production data directly into your MES so management gets accurate numbers and operators stay focused on running the line.</p>
                         <span class="tech-category">Data Strategy</span>
                     </div>
                 </div>
@@ -107,49 +117,41 @@
                     </div>
                     <div class="service-body">
                         <h3>Mobile & Desktop Applications</h3>
-                        <p>Custom software solutions for remote monitoring, data logging, and specialized industrial tools built for any device.</p>
+                        <p>Sometimes the right tool isn't an off-the-shelf SCADA package. We build custom software — remote monitoring dashboards, data loggers, production tracking tools — that run on any device and are tailored exactly to how your team actually works.</p>
                         <span class="tech-category">Custom Dev</span>
                     </div>
                 </div>
 
                 <div class="learning-card service-alt">
                     <div class="service-thumbnail">
-                        <img src="services/consultancy/thumbnail.jpg" alt="Consultancy" onerror="this.src='https://via.placeholder.com/400x250/3f87f5/ffffff?text=Consultancy'">
+                        <img src="services/training/thumbnail.jpg" alt="Automation Training" onerror="this.src='https://via.placeholder.com/400x250/1da192/ffffff?text=Industrial+Trainings'">
                     </div>
                     <div class="service-body">
-                        <h3>Consultancy</h3>
-                        <p>Not sure where to start? We offer expert guidance to help you "right-size" your automation roadmap and avoid costly over-engineering.</p>
-                        <span class="tech-category" style="background-color: #3f87f5;">Strategy</span>
-                    </div>
-                </div>
-
-                <div class="learning-card service-alt">
-                    <div class="service-thumbnail">
-                        <img src="services/training/thumbnail.jpg" alt="Trainings" onerror="this.src='https://via.placeholder.com/400x250/1da192/ffffff?text=Industrial+Trainings'">
-                    </div>
-                    <div class="service-body">
-                        <h3>Automation Trainings</h3>
-                        <p>Empower your team to maintain and troubleshoot. We provide hands-on training for PLC logic, SCADA, and automation safety.</p>
+                        <h3>Automation Training</h3>
+                        <p>A system your team can't maintain is a liability, not an asset. We provide hands-on training in PLC logic, SCADA operation, and automation safety — tailored to your specific equipment and your team's starting level. Empower your people to own the system.</p>
                         <span class="tech-category">Knowledge Transfer</span>
                     </div>
                 </div>
 
             </div>
         </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="contact-section" id="contact" style="padding-top: 20px;">
+            <div class="max-width-container">
+                <h2 class="section-title">Not Sure Which Service Fits?</h2>
+                <p class="section-description">
+                    Let's find out together. A free 30-minute consultation with PulseIQ is the fastest way to get clarity on what your operation actually needs — and what it doesn't.
+                </p>
+                <a href="mailto:info@pulseiqs.com?subject=Consultation Request" class="btn-primary" style="font-size:1rem; padding: 16px 40px;">
+                    Book a Free Consultation →
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <div id="lightbox" class="lightbox-modal" onclick="this.style.display='none'">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-image">
-    </div>
-
     <div id="footer-placeholder"></div>
-
-    <script>
-        function openLightbox(src) {
-            document.getElementById('lightbox').style.display = 'block';
-            document.getElementById('lightbox-image').src = src;
-        }
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
