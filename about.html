@@ -112,6 +112,87 @@
             </div>
         </section>
 
+        <!-- ========== INQUIRY FORM ========== -->
+        <section class="inquiry-form-section" id="inquiry">
+            <div class="max-width-container">
+                <div class="inquiry-form-wrapper">
+                    <div class="inquiry-form-header">
+                        <h2 class="section-title">Send an <span class="gradient-text">Inquiry</span></h2>
+                        <p class="section-description">Prefer to write it out? Fill in the form below and we'll get back to you within one business day.</p>
+                    </div>
+
+                    <form
+                        id="inquiryForm"
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSellnMltr2Wvi2rMCoKmheAGKczdqzLMKw-YhCTTDU_xxoHxA/formResponse"
+                        method="POST"
+                        target="hidden-iframe"
+                        class="inquiry-form"
+                        onsubmit="handleFormSubmit()"
+                    >
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="Name">Full Name</label>
+                                <input
+                                    type="text"
+                                    id="inq-name"
+                                    name="entry.1875671707"
+                                    placeholder="Your name"
+                                    required
+                                    autocomplete="name"
+                                >
+                            </div>
+                            <div class="form-field">
+                                <label for="Email">Email Address</label>
+                                <input
+                                    type="email"
+                                    id="inq-email"
+                                    name="entry.1928060713"
+                                    placeholder="you@company.com"
+                                    required
+                                    autocomplete="email"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="Inquiry">Your Inquiry</label>
+                            <textarea
+                                id="inq-message"
+                                name="entry.1710950468"
+                                rows="5"
+                                placeholder="Describe your automation challenge, project scope, or questions — as much detail as you'd like."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary inquiry-submit-btn">
+                                Send Inquiry →
+                            </button>
+                            <span class="form-note">We don't share your information with third parties.</span>
+                        </div>
+                    </form>
+
+                    <div id="formSuccess" class="form-success-state" style="display:none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Inquiry Received</h3>
+                        <p>Thanks for reaching out. We'll review your message and respond within one business day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <iframe name="hidden-iframe" style="display:none;" aria-hidden="true"></iframe>
+        </section>
+
+        <script>
+            function handleFormSubmit() {
+                setTimeout(function() {
+                    document.getElementById('inquiryForm').style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                }, 600);
+            }
+        </script>
+
     </main>
 
     <div id="footer-placeholder"></div>
